@@ -35,11 +35,11 @@ mod tests {
 
     #[test]
     fn ex2_reference_counting() {
-        let (ref1, ref2, ref3) = create_shared_data();
+        let (ref1, ref2, _ref3) = create_shared_data();
         assert_eq!(Rc::strong_count(&ref1), 3);
 
         {
-            let ref4 = Rc::clone(&ref1);
+            let _ref4 = Rc::clone(&ref1);
             assert_eq!(Rc::strong_count(&ref1), 4);
         }
 
