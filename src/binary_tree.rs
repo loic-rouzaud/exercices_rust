@@ -1,4 +1,5 @@
 //
+// Exercice 1
 // Goal : create a binary tree, that sorts even values
 // on the right, and others on the left.
 //
