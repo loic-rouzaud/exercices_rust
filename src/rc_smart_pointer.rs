@@ -1,6 +1,8 @@
 //
-// Implémentez une fonction qui crée trois variables pointant
-// vers la même donnée et retourne ces trois pointeurs.
+// Exercice 2
+// Understand how Rc smart pointers enable shared ownership
+// of data in Rust by implementing a function that creates multiple
+// references to the same data.
 //
 
 use std::rc::Rc;

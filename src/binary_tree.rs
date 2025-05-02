@@ -1,7 +1,9 @@
 //
 // Exercice 1
-// Goal : create a binary tree, that sorts even values
-// on the right, and others on the left.
+//
+// Goal : Understand how Box smart pointers enable recursive data structures
+// in Rust by examining a binary tree implementation that organizes
+// values based on their properties.
 //
 
 pub struct Node<T> {
