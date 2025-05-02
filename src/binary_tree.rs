@@ -23,16 +23,18 @@ impl<T> Node<T> {
         }
     }
 
-    pub fn traverse(&self, visit: &mut dyn FnMut(&T)) {
+    pub fn traverse_left_side(&self, visit: &mut dyn FnMut(&T)) {
         if let Some(left) = &self.left {
-            left.traverse(visit);
+            left.traverse_left_side(visit);
         }
-
         visit(&self.value);
+    }
 
+    pub fn traverse_right_side(&self, visit: &mut dyn FnMut(&T)) {
         if let Some(right) = &self.right {
-            right.traverse(visit);
+            right.traverse_right_side(visit);
         }
+        visit(&self.value);
     }
 }
 

@@ -5,15 +5,18 @@ mod rc_smart_pointer;
 use rc_smart_pointer::create_shared_data;
 
 fn exo1() {
-    let mut root = Node::new(5);
+    let mut even_values = Vec::new();
+    let mut odd_values = Vec::new();
+    let mut root = Node::new(0);
 
-    for i in 1..100 {
+    for i in 1..50 {
         root.insert(i);
     }
 
-    let mut values = Vec::new();
-    root.traverse(&mut |value| values.push(*value));
-    println!("{:?}", values)
+    root.traverse_left_side(&mut |value| even_values.push(*value));
+    println!("even values : {:?}", even_values);
+    root.traverse_right_side(&mut |value| odd_values.push(*value));
+    println!("odd_values : {:?}", odd_values);
 }
 
 fn exo2() {
