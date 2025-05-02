@@ -9,7 +9,7 @@ fn exo1() {
     let mut odd_values = Vec::new();
     let mut root = Node::new(0);
 
-    for i in 1..50 {
+    for i in 0..49 {
         root.insert(i);
     }
 
