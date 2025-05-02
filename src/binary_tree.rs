@@ -1,3 +1,8 @@
+//
+// Goal : create a binary tree, that sorts even values
+// on the right, and others on the left.
+//
+
 pub struct Node<T> {
     value: T,
     left: Option<Box<Node<T>>>,
