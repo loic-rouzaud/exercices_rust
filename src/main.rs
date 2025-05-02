@@ -21,9 +21,9 @@ fn exo2() {
 }
 
 fn main() {
-    println!("{}", Colour::Red.paint("Exercice 1"));
+    println!("{}", Colour::Green.paint("Exercice 1"));
     exo1();
     println!("");
-    println!("{}", Colour::Red.paint("Exercice 2"));
+    println!("{}", Colour::Green.paint("Exercice 2"));
     exo2();
 }
