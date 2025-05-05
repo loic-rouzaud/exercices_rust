@@ -1,5 +1,5 @@
 mod box_pointers;
-mod fnmut_pointers;
+mod fn_pointers;
 mod rc_pointers;
 mod resume_ex;
 use ansi_term::{Colour, Style};
