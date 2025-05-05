@@ -73,5 +73,25 @@ pub fn exo4() {
 
 // Exercice 5
 pub fn exo5() {
-    println!("à implementer mais flemme ce soir");
+    let mut vec1 = vec![1, 2, 3, 4, 5];
+
+    // L'usage est surtout + important que la fonction en elle-meme
+    let vec2 = vec![
+        // Closure sur le type
+        |vec: &mut Vec<i32>| {
+            for n in vec.iter_mut() {
+                *n *= 10;
+            }
+        },
+        |vec: &mut Vec<i32>| {
+            vec.push(99);
+        },
+        |vec: &mut Vec<i32>| {
+            vec.reverse();
+        },
+    ];
+
+    println!("Avant {:?}", vec1);
+    apply_operations(&mut vec1, vec2);
+    println!("Après {:?}", vec1);
 }
