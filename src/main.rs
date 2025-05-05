@@ -1,11 +1,21 @@
 use ansi_term::Colour;
-mod binary_tree;
-use binary_tree::Node;
-mod rc_smart_pointer;
-use rc_smart_pointer::create_shared_data;
-mod cons_list;
-use cons_list::{create_list, display_cons_list, sum_list};
 
+mod solutions {}
+
+mod box_pointers {
+    pub mod binary_tree;
+    pub mod cons_list;
+}
+
+mod rc_pointers {
+    pub mod rc_smart_pointer;
+}
+
+use box_pointers::binary_tree::Node;
+use box_pointers::cons_list::{create_list, display_cons_list, sum_list};
+use rc_pointers::rc_smart_pointer::create_shared_data;
+
+// Exercice 1
 fn exo1() {
     let mut even_values = Vec::new();
     let mut odd_values = Vec::new();
@@ -21,10 +31,12 @@ fn exo1() {
     println!("odd_values : {:?}", odd_values);
 }
 
+// Exercice 2
 fn exo2() {
     create_shared_data();
 }
 
+// Exercice 3
 fn exo3() {
     let elements = vec![1, 2, 3, 4, 5];
     let my_list = create_list(elements);
@@ -32,6 +44,7 @@ fn exo3() {
     println!("{}", sum_list(&my_list));
 }
 
+// Main de test
 fn main() {
     println!("{}", Colour::Green.paint("Exercice 1"));
     exo1();
