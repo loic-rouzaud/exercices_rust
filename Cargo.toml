@@ -1,5 +1,5 @@
 [package]
-name = "claude-exo"
+name = "exo-rust"
 version = "0.1.0"
 edition = "2024"
 
