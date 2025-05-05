@@ -14,3 +14,20 @@ pub fn add_consumer(resource: Rc<Vec<i32>>) -> usize {
     let _consumer = Rc::clone(&resource);
     Rc::strong_count(&resource)
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_shared_resource() {
+        let original_vec = create_shared_resource();
+        assert_eq!(Rc::strong_count(&original_vec), 1);
+
+        let count1 = add_consumer(Rc::clone(&original_vec));
+        assert_eq!(count1, 2);
+
+        let count2 = add_consumer(Rc::clone(&original_vec));
+        assert_eq!(count2, 3);
+    }
+}
