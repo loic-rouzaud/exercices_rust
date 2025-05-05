@@ -3,6 +3,7 @@ mod binary_tree;
 use binary_tree::Node;
 mod rc_smart_pointer;
 use rc_smart_pointer::create_shared_data;
+mod binary_tree_ex1;
 
 fn exo1() {
     let mut even_values = Vec::new();
