@@ -8,7 +8,7 @@ use resume_ex::{exo1, exo2, exo3, exo4, exo5};
 // Main de test
 fn main() {
     println!(
-        "{}",
+        "\n{}",
         Style::new()
             .bold()
             .underline()
@@ -17,9 +17,8 @@ fn main() {
     );
     exo1();
 
-    println!("");
     println!(
-        "{}",
+        "\n{}",
         Style::new()
             .bold()
             .underline()
@@ -28,9 +27,8 @@ fn main() {
     );
     exo2();
 
-    println!("");
     println!(
-        "{}",
+        "\n{}",
         Style::new()
             .bold()
             .underline()
@@ -39,9 +37,8 @@ fn main() {
     );
     exo3();
 
-    println!("");
     println!(
-        "{}",
+        "\n{}",
         Style::new()
             .bold()
             .underline()
@@ -50,9 +47,8 @@ fn main() {
     );
     exo4();
 
-    println!("");
     println!(
-        "{}",
+        "\n{}",
         Style::new()
             .bold()
             .underline()
