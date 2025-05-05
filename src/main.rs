@@ -1,8 +1,9 @@
 mod box_pointers;
+mod fnmut_pointers;
 mod rc_pointers;
 mod resume_ex;
 use ansi_term::Colour;
-use resume_ex::{exo1, exo2, exo3, exo4};
+use resume_ex::{exo1, exo2, exo3, exo4, exo5};
 
 // Main de test
 fn main() {
@@ -20,4 +21,8 @@ fn main() {
     println!("");
     println!("{}", Colour::Green.paint("Exercice 4"));
     exo4();
+
+    println!("");
+    println!("{}", Colour::Green.paint("Exercice 5"));
+    exo5();
 }

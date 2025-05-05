@@ -1,5 +1,6 @@
 use crate::box_pointers::binary_tree::Node;
 use crate::box_pointers::cons_list::{create_list, display_cons_list, sum_list};
+use crate::fnmut_pointers::fnmut::apply_operations;
 use crate::rc_pointers::rc_shared_data::{add_consumer, create_shared_resource};
 use crate::rc_pointers::rc_smart_pointer::create_shared_data;
 use ansi_term::Colour;
@@ -68,4 +69,9 @@ pub fn exo4() {
 
     println!("Après la fin du bloc: {}", Rc::strong_count(&original_vec));
     println!("Contenu du vecteur partagé: {:?}", *original_vec);
+}
+
+// Exercice 5
+pub fn exo5() {
+    println!("à implementer mais flemme ce soir");
 }
