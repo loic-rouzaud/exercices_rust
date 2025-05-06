@@ -1,10 +1,12 @@
 use crate::box_pointers::binary_tree::Node;
 use crate::box_pointers::cons_list::{create_list, display_cons_list, sum_list};
 use crate::fn_pointers::fnmut::apply_operations;
+use crate::mutex_pointers::mutex::{create_counter, increment_counter};
 use crate::rc_pointers::rc_shared_data::{add_consumer, create_shared_resource};
 use crate::rc_pointers::rc_smart_pointer::create_shared_data;
 use ansi_term::Colour;
 use std::rc::Rc;
+use std::sync::Arc;
 
 // Exercice 1
 pub fn exo1() {
@@ -45,15 +47,15 @@ pub fn exo4() {
 
     println!(
         "Après 1er consommateur: {}",
-        add_consumer(Rc::clone(&original_vec))
+        add_consumer(&Rc::clone(&original_vec))
     );
     println!(
         "Après 2ème consommateur: {}",
-        add_consumer(Rc::clone(&original_vec))
+        add_consumer(&Rc::clone(&original_vec))
     );
     println!(
         "Après 3ème consommateur: {}",
-        add_consumer(Rc::clone(&original_vec))
+        add_consumer(&Rc::clone(&original_vec))
     );
 
     println!("{}", Colour::Blue.paint("-------------"));
@@ -94,4 +96,21 @@ pub fn exo5() {
     println!("Avant {:?}", vec1);
     apply_operations(&mut vec1, vec2);
     println!("Après {:?}", vec1);
+}
+
+// Exercice 6
+pub fn exo6() {
+    let counter = create_counter();
+
+    let handles = vec![
+        increment_counter(Arc::clone(&counter), 1000),
+        increment_counter(Arc::clone(&counter), 1000),
+        increment_counter(Arc::clone(&counter), 1000),
+    ];
+
+    for handle in handles {
+        handle.join().unwrap();
+    }
+
+    println!("Valeur finale: {}", *counter.lock().unwrap());
 }
