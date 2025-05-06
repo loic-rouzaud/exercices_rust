@@ -1,5 +1,6 @@
 use crate::box_pointers::binary_tree::Node;
 use crate::box_pointers::cons_list::{create_list, display_cons_list, sum_list};
+use crate::fn_pointers::event_manager::EventManager;
 use crate::fn_pointers::fnmut::apply_operations;
 use crate::mutex_pointers::mutex::{create_counter, increment_counter};
 use crate::rc_pointers::rc_shared_data::{add_consumer, create_shared_resource};
@@ -113,4 +114,9 @@ pub fn exo6() {
     }
 
     println!("Valeur finale: {}", *counter.lock().unwrap());
+}
+
+pub fn exo7() {
+    EventManager::new();
+    println!("à implementer");
 }
