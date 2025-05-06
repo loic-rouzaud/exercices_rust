@@ -117,6 +117,42 @@ pub fn exo6() {
 }
 
 pub fn exo7() {
-    EventManager::new();
-    println!("à implementer");
+    let mut event_manager = EventManager::new();
+
+    event_manager.register_start_handler(|| {
+        println!("Application démarrée !");
+    });
+
+    event_manager.register_start_handler(|| {
+        println!("Initialisation des ressources...");
+    });
+
+    event_manager.register_message_handler(|msg| format!("Echo: {}", msg));
+
+    event_manager.register_message_handler(|msg| format!("Majuscules: {}", msg.to_uppercase()));
+
+    event_manager.register_shutdown_handler(|| {
+        println!("Fermeture des connexions...");
+        true
+    });
+
+    event_manager.register_shutdown_handler(|| {
+        println!("Sauvegarde des données...");
+        true
+    });
+
+    println!("=== Déclenchement de l'événement de démarrage ===");
+    event_manager.trigger_start();
+
+    println!("\n=== Traitement des messages ===");
+    let message = String::from("bonjour rust");
+    let responses = event_manager.process_message(message);
+
+    for (i, response) in responses.iter().enumerate() {
+        println!("Réponse du handler {}: {}", i + 1, response);
+    }
+
+    println!("\n=== Fermeture de l'application ===");
+    let shutdown_successful = event_manager.shutdown();
+    println!("Fermeture réussie: {}", shutdown_successful);
 }
