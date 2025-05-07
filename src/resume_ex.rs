@@ -2,6 +2,7 @@ use crate::box_pointers::binary_tree::Node;
 use crate::box_pointers::cons_list::{create_list, display_cons_list, sum_list};
 use crate::fn_pointers::event_manager::EventManager;
 use crate::fn_pointers::fnmut::apply_operations;
+use crate::loops::sum::{sum_even_numbers_like_c, sum_even_numbers_like_rust};
 use crate::mutex_pointers::mutex::{create_counter, increment_counter};
 use crate::rc_pointers::rc_shared_data::{add_consumer, create_shared_resource};
 use crate::rc_pointers::rc_smart_pointer::create_shared_data;
@@ -173,7 +174,14 @@ pub fn exo8() {
     for prout in prouts {
         println!("{prout}")
     }
-    println!("Clearing logger....");
+    println!("\nClearing logger....");
     logger.clear();
     println!("Logs after clearing : {}", texte_resultat);
+}
+
+// Exercice 9
+// Simplement pour revoir les methodes d'iterations ect...
+pub fn exo9() {
+    println!("sum like C : {:?}", sum_even_numbers_like_c(0, 49));
+    println!("sum like Rust : {:?}", sum_even_numbers_like_rust(0, 49));
 }

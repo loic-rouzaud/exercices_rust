@@ -1,11 +1,12 @@
 mod box_pointers;
 mod fn_pointers;
+mod loops;
 mod mutex_pointers;
 mod rc_pointers;
 mod refcell_pointer;
 mod resume_ex;
 use ansi_term::{Colour, Style};
-use resume_ex::{exo1, exo2, exo3, exo4, exo5, exo6, exo7, exo8};
+use resume_ex::{exo1, exo2, exo3, exo4, exo5, exo6, exo7, exo8, exo9};
 
 // Main de test
 fn main() {
@@ -88,4 +89,14 @@ fn main() {
             .paint("Exercice 8")
     );
     exo8();
+
+    println!(
+        "\n{}",
+        Style::new()
+            .bold()
+            .underline()
+            .fg(Colour::Green)
+            .paint("Exercice 9")
+    );
+    exo9();
 }
