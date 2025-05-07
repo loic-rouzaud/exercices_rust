@@ -5,6 +5,7 @@ use crate::fn_pointers::fnmut::apply_operations;
 use crate::mutex_pointers::mutex::{create_counter, increment_counter};
 use crate::rc_pointers::rc_shared_data::{add_consumer, create_shared_resource};
 use crate::rc_pointers::rc_smart_pointer::create_shared_data;
+use crate::refcell_pointer::refcell::Logger;
 use ansi_term::Colour;
 use std::rc::Rc;
 use std::sync::Arc;
@@ -155,4 +156,24 @@ pub fn exo7() {
     println!("\n=== Fermeture de l'application ===");
     let shutdown_successful = event_manager.shutdown();
     println!("Fermeture réussie: {}", shutdown_successful);
+}
+
+// Exercice 8
+pub fn exo8() {
+    let logger = Logger::new();
+
+    let texte_resultat =
+        logger.process_with_logging(String::from("Bonjour"), |mut texte, log_fn| {
+            log_fn("Ici on pousse ça dans le vecteur -> Traitement de texte commencé");
+            texte.push_str(" à vous");
+            log_fn(&format!("Texte après modification: {}", texte));
+            texte
+        });
+    let prouts = logger.get_logs();
+    for prout in prouts {
+        println!("{prout}")
+    }
+    println!("Clearing logger....");
+    logger.clear();
+    println!("Logs after clearing : {}", texte_resultat);
 }
