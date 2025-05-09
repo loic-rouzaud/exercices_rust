@@ -10,8 +10,8 @@ impl User {
     fn new(username: String) -> Self {
         User {
             username,
-            email: Some(String::from("")),
-            age: Some(0),
+            email: None,
+            age: None,
         }
     }
 
