@@ -28,8 +28,8 @@ impl User {
     fn get_contact_info(&self) -> String {
         // À implémenter - Retourne le username et l'email s'il existe
         match &self.email {
-            Some(email) => email.to_string(),
-            None => String::from("None"),
+            Some(email) => format!("username: {}\nemail: {}", self.username, email),
+            None => format!("username {}\nemail : None", self.username),
         }
     }
 
