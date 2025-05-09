@@ -12,6 +12,10 @@ pub fn sum_even_numbers_like_rust(start: i32, end: i32) -> i32 {
     (start..end).filter(|&x| x % 2 == 0).sum()
 }
 
+fn sum_even_numbers1(numbers: &[i32]) -> i32 {
+    numbers.iter().filter(|&number| number % 2 == 0).sum() // une autre maniere de faire
+}
+
 // unused mais pas grave
 pub fn process_strings(strings: Vec<&str>, min_lenght: usize) -> usize {
     strings
@@ -21,8 +25,7 @@ pub fn process_strings(strings: Vec<&str>, min_lenght: usize) -> usize {
         .sum()
 }
 
-// unused mais pas grave
-fn square_roots_of_even(numbers: Vec<i32>) -> Vec<f64> {
+pub fn square_roots_of_even(numbers: Vec<i32>) -> Vec<f64> {
     numbers
         .iter()
         .filter(|&number| number % 2 == 0)
@@ -42,6 +45,11 @@ pub fn unique_words(sentences: Vec<&str>) -> Vec<String> {
         })
         .collect();
 
+    words.sort(); // obligatoire pour que dedup() fonctionne
     words.dedup();
     words
+}
+
+pub fn to_uppercase(strings: &[String]) -> Vec<String> {
+    strings.iter().map(|string| string.to_uppercase()).collect()
 }

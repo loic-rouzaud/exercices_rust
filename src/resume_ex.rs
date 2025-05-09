@@ -2,11 +2,15 @@ use crate::box_pointers::binary_tree::Node;
 use crate::box_pointers::cons_list::{create_list, display_cons_list, sum_list};
 use crate::fn_pointers::event_manager::EventManager;
 use crate::fn_pointers::fnmut::apply_operations;
-use crate::loops::sum::{sum_even_numbers_like_c, sum_even_numbers_like_rust, unique_words};
+use crate::loops::iterations::{
+    square_roots_of_even, sum_even_numbers_like_c, sum_even_numbers_like_rust, to_uppercase,
+    unique_words,
+};
 use crate::mutex_pointers::mutex::{create_counter, increment_counter};
 use crate::rc_pointers::rc_shared_data::{add_consumer, create_shared_resource};
 use crate::rc_pointers::rc_smart_pointer::create_shared_data;
 use crate::refcell_pointer::refcell::Logger;
+
 use ansi_term::Colour;
 use std::rc::Rc;
 use std::sync::Arc;
@@ -188,9 +192,17 @@ pub fn exo9() {
         "Salut comment vas-tu",
     ];
 
+    let arr = [String::from("hello"), String::from("world")];
+
+    let num_vec = vec![1, 2, 3, 4, 5];
+
     println!("sum like C : {:?}", sum_even_numbers_like_c(0, 49));
     println!("sum like Rust : {:?}", sum_even_numbers_like_rust(0, 49));
 
     let words_vec: Vec<String> = unique_words(sentence_vec);
-    println!("\nVecteur après : {:?}", words_vec);
+    println!("\nVecteur après : {:?}\n", words_vec);
+
+    square_roots_of_even(num_vec);
+
+    println!("Ici le vecteur en uppercase {:#?}", to_uppercase(&arr));
 }
