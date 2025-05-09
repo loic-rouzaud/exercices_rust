@@ -1,4 +1,5 @@
 mod box_pointers;
+mod error_handling;
 mod fn_pointers;
 mod loops;
 mod mutex_pointers;
