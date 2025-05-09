@@ -1,6 +1,6 @@
 use crate::box_pointers::binary_tree::Node;
 use crate::box_pointers::cons_list::{create_list, display_cons_list, sum_list};
-use crate::error_handling::results::parse_number;
+use crate::error_handling::user_option::User;
 use crate::fn_pointers::event_manager::EventManager;
 use crate::fn_pointers::fnmut::apply_operations;
 use crate::loops::iterations::{
@@ -206,4 +206,55 @@ pub fn exo9() {
     square_roots_of_even(num_vec);
 
     println!("Ici le vecteur en uppercase {:#?}", to_uppercase(&arr));
+}
+
+// Exercice 10
+pub fn exo10() {
+    let user = User::new(String::from("alice"));
+    println!("Nouvel utilisateur créé : {}\n", user.get_contact_info());
+
+    let user_with_email = user.with_email(String::from("alice@example.com"));
+    println!(
+        "Après ajout de l'email : {}",
+        user_with_email.get_contact_info()
+    );
+
+    let young_user = User::new(String::from("bob"))
+        .with_email(String::from("bob@example.com"))
+        .with_age(16);
+    println!(
+        "Jeune utilisateur créé : {}\n",
+        young_user.get_contact_info()
+    );
+
+    match young_user.is_adult() {
+        Some(true) => println!("Bob est adulte"),
+        Some(false) => println!("Bob est mineur"),
+        None => println!("Âge de Bob non spécifié"),
+    }
+
+    let adult_user = User::new(String::from("charlie")).with_age(25);
+    println!(
+        "Utilisateur adulte créé : {}\n",
+        adult_user.get_contact_info()
+    );
+
+    match adult_user.is_adult() {
+        Some(true) => println!("Charlie est adulte"),
+        Some(false) => println!("Charlie est mineur"),
+        None => println!("Âge de Charlie non spécifié"),
+    }
+
+    let unknown_age_user =
+        User::new(String::from("david")).with_email(String::from("david@example.com"));
+    println!(
+        "Utilisateur sans âge : {}\n",
+        unknown_age_user.get_contact_info()
+    );
+
+    match unknown_age_user.is_adult() {
+        Some(true) => println!("David est adulte"),
+        Some(false) => println!("David est mineur"),
+        None => println!("Âge de David non spécifié"),
+    }
 }

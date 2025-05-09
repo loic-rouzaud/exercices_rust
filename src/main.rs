@@ -7,7 +7,7 @@ mod rc_pointers;
 mod refcell_pointer;
 mod resume_ex;
 use ansi_term::{Colour, Style};
-use resume_ex::{exo1, exo2, exo3, exo4, exo5, exo6, exo7, exo8, exo9};
+use resume_ex::{exo1, exo2, exo3, exo4, exo5, exo6, exo7, exo8, exo9, exo10};
 
 // Main de test
 fn main() {
@@ -100,4 +100,14 @@ fn main() {
             .paint("Exercice 9")
     );
     exo9();
+
+    println!(
+        "\n{}",
+        Style::new()
+            .bold()
+            .underline()
+            .fg(Colour::Green)
+            .paint("Exercice 10")
+    );
+    exo10();
 }
