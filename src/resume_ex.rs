@@ -3,6 +3,7 @@ use crate::box_pointers::cons_list::{create_list, display_cons_list, sum_list};
 use crate::error_handling::user_option::User;
 use crate::fn_pointers::event_manager::EventManager;
 use crate::fn_pointers::fnmut::apply_operations;
+use crate::hashmaps::hashmap::{count_chars, word_frequency};
 use crate::loops::iterations::{
     square_roots_of_even, sum_even_numbers_like_c, sum_even_numbers_like_rust, to_uppercase,
     unique_words,
@@ -257,4 +258,11 @@ pub fn exo10() {
         Some(false) => println!("David est mineur"),
         None => println!("Âge de David non spécifié"),
     }
+}
+
+pub fn exo11() {
+    let str = "Lorem ipsum prout Lorem ipsum prout Lorem ipsum prout Lorem ipsum prout";
+
+    println!("{:?}", count_chars(str));
+    println!("{:?}", word_frequency(str));
 }
