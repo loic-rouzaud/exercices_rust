@@ -1,17 +1,17 @@
-use crate::box_pointers::binary_tree::Node;
-use crate::box_pointers::cons_list::{create_list, display_cons_list, sum_list};
-use crate::error_handling::user_option::User;
-use crate::fn_pointers::event_manager::EventManager;
-use crate::fn_pointers::fnmut::apply_operations;
-use crate::hashmaps::hashmap::{count_chars, word_frequency};
-use crate::loops::iterations::{
+use crate::solutions::box_pointers::binary_tree::Node;
+use crate::solutions::box_pointers::cons_list::{create_list, display_cons_list, sum_list};
+use crate::solutions::error_handling::user_option::User;
+use crate::solutions::fn_pointers::event_manager::EventManager;
+use crate::solutions::fn_pointers::fnmut::apply_operations;
+use crate::solutions::hashmaps::hashmap::{count_chars, word_frequency};
+use crate::solutions::loops::iterations::{
     square_roots_of_even, sum_even_numbers_like_c, sum_even_numbers_like_rust, to_uppercase,
     unique_words,
 };
-use crate::mutex_pointers::mutex::{create_counter, increment_counter};
-use crate::rc_pointers::rc_shared_data::{add_consumer, create_shared_resource};
-use crate::rc_pointers::rc_smart_pointer::create_shared_data;
-use crate::refcell_pointer::refcell::Logger;
+use crate::solutions::mutex_pointers::mutex::{create_counter, increment_counter};
+use crate::solutions::rc_pointers::rc_shared_data::{add_consumer, create_shared_resource};
+use crate::solutions::rc_pointers::rc_smart_pointer::create_shared_data;
+use crate::solutions::refcell_pointer::refcell::Logger;
 
 use ansi_term::Colour;
 use std::rc::Rc;

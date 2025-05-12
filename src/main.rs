@@ -1,12 +1,14 @@
-mod box_pointers;
-mod error_handling;
-mod fn_pointers;
-mod hashmaps;
-mod loops;
-mod mutex_pointers;
-mod rc_pointers;
-mod refcell_pointer;
+// mod box_pointers;
+// mod error_handling;
+// mod fn_pointers;
+// mod hashmaps;
+// mod loops;
+// mod mutex_pointers;
+// mod rc_pointers;
+// mod refcell_pointer;
+
 mod resume_ex;
+mod solutions;
 use ansi_term::{Colour, Style};
 use resume_ex::{exo1, exo2, exo3, exo4, exo5, exo6, exo7, exo8, exo9, exo10, exo11};
 

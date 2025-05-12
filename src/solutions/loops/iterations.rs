@@ -12,11 +12,12 @@ pub fn sum_even_numbers_like_rust(start: i32, end: i32) -> i32 {
     (start..end).filter(|&x| x % 2 == 0).sum()
 }
 
+#[allow(dead_code)]
 fn sum_even_numbers1(numbers: &[i32]) -> i32 {
     numbers.iter().filter(|&number| number % 2 == 0).sum() // une autre maniere de faire
 }
 
-// unused mais pas grave
+#[allow(dead_code)]
 pub fn process_strings(strings: Vec<&str>, min_lenght: usize) -> usize {
     strings
         .iter()
