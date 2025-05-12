@@ -1,7 +1,19 @@
 [package]
 name = "exo-rust"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
+
+[features]
+solutions = []
+
+[[bin]]
+name = "exercises"
+path = "src/main.rs"
+
+[[bin]]
+name = "solutions"
+path = "src/solutions/main.rs"
+required-features = ["solutions"]
 
 [dependencies]
 ansi_term = "0.12.1"

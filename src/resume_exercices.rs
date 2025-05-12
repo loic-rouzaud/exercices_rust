@@ -1,17 +1,17 @@
-use crate::solutions::box_pointers::binary_tree::Node;
-use crate::solutions::box_pointers::cons_list::{create_list, display_cons_list, sum_list};
-use crate::solutions::error_handling::user_option::User;
-use crate::solutions::fn_pointers::event_manager::EventManager;
-use crate::solutions::fn_pointers::fnmut::apply_operations;
-use crate::solutions::hashmaps::hashmap::{count_chars, word_frequency};
-use crate::solutions::loops::iterations::{
+use crate::exercices::box_pointers_04::binary_tree::Node;
+use crate::exercices::box_pointers_04::cons_list::{create_list, display_cons_list, sum_list};
+use crate::exercices::error_handling_02::user_option::User;
+use crate::exercices::fn_pointers_05::event_manager::EventManager;
+use crate::exercices::fn_pointers_05::fnmut::apply_operations;
+use crate::exercices::hashmaps_03::hashmap::{count_chars, word_frequency};
+use crate::exercices::loops_01::iterations::{
     square_roots_of_even, sum_even_numbers_like_c, sum_even_numbers_like_rust, to_uppercase,
     unique_words,
 };
-use crate::solutions::mutex_pointers::mutex::{create_counter, increment_counter};
-use crate::solutions::rc_pointers::rc_shared_data::{add_consumer, create_shared_resource};
-use crate::solutions::rc_pointers::rc_smart_pointer::create_shared_data;
-use crate::solutions::refcell_pointer::refcell::Logger;
+use crate::exercices::mutex_pointers_06::mutex::{create_counter, increment_counter};
+use crate::exercices::rc_pointers_07::rc_shared_data::{add_consumer, create_shared_resource};
+use crate::exercices::rc_pointers_07::rc_smart_pointer::create_shared_data;
+use crate::exercices::refcell_pointer_08::refcell::Logger;
 
 use ansi_term::Colour;
 use std::rc::Rc;
