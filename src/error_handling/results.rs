@@ -1,3 +1,29 @@
+#[derive(Debug)]
+enum ParseError {
+    EmptyInput,
+    InvalidNumber,
+    OutOfRange,
+}
+
+fn parse_age(input: &str) -> Result<u8, ParseError> {
+    // Parser une chaîne en âge (0-120)
+    // Gérer les cas : chaîne vide, non-numérique, hors limites
+    if input.trim().is_empty() {
+        return Err(ParseError::EmptyInput);
+    }
+
+    let parsed: u8 = match input.trim().parse() {
+        Ok(num) => num,
+        Err(_) => return Err(ParseError::InvalidNumber),
+    };
+
+    if parsed <= 120 {
+        Ok(parsed)
+    } else {
+        Err(ParseError::OutOfRange)
+    }
+}
+
 pub fn parse_number(input: &str) -> Result<i32, String> {
     match input.parse::<i32>() {
         Ok(number) => Ok(number),
