@@ -26,7 +26,6 @@ impl User {
     }
 
     pub fn get_contact_info(&self) -> String {
-        // À implémenter - Retourne le username et l'email s'il existe
         match &self.email {
             Some(email) => format!("username: {}\nemail: {}", self.username, email),
             None => format!("username {}\nemail : None", self.username),
@@ -34,9 +33,6 @@ impl User {
     }
 
     pub fn is_adult(&self) -> Option<bool> {
-        // À implémenter - Retourne Some(true) si l'âge est présent et >= 18
-        // Some(false) si l'âge est présent et < 18
-        // None si l'âge n'est pas renseigné
         self.age.map(|age| age >= 18) // => banger de pouvoir faire comme ça
     }
 }

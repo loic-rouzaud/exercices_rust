@@ -8,8 +8,6 @@ enum ParseError {
 
 #[allow(dead_code)]
 fn parse_age(input: &str) -> Result<u8, ParseError> {
-    // Parser une chaîne en âge (0-120)
-    // Gérer les cas : chaîne vide, non-numérique, hors limites
     if input.trim().is_empty() {
         return Err(ParseError::EmptyInput);
     }

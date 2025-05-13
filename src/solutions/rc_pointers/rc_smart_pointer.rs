@@ -1,10 +1,3 @@
-//
-// Exercice 2
-// Understand how Rc smart pointers enable shared ownership
-// of data in Rust by implementing a function that creates multiple
-// references to the same data.
-//
-
 use std::rc::Rc;
 
 pub fn create_shared_data() -> (Rc<String>, Rc<String>, Rc<String>) {

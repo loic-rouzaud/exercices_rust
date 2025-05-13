@@ -6,3 +6,4 @@ pub mod loops_01;
 pub mod mutex_pointers_06;
 pub mod rc_pointers_07;
 pub mod refcell_pointer_08;
+pub mod traits_09;

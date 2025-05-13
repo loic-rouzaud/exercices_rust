@@ -1,3 +1,7 @@
+// ⚠️
+// FICHIER QUI N'EST PAS DESTINÉ À RESTER EN L'ETAT, IL ME PERMET JUSTE DE TESTER
+// MES FONCTIONS DE MON COTÉ.
+
 use crate::box_pointers::binary_tree::Node;
 use crate::box_pointers::cons_list::{create_list, display_cons_list, sum_list};
 use crate::error_handling::user_option::User;
@@ -12,12 +16,14 @@ use crate::mutex_pointers::mutex::{create_counter, increment_counter};
 use crate::rc_pointers::rc_shared_data::{add_consumer, create_shared_resource};
 use crate::rc_pointers::rc_smart_pointer::create_shared_data;
 use crate::refcell_pointer::refcell::Logger;
+use crate::traits::trait1::{Display, Person, Product};
+use crate::traits::trait2::{analyze_shape, Circle, Rectangle};
 
 use ansi_term::Colour;
 use std::rc::Rc;
 use std::sync::Arc;
 
-// Exercice 1
+// Exercice Binary tree
 pub fn exo1() {
     let mut even_values = Vec::new();
     let mut odd_values = Vec::new();
@@ -33,12 +39,12 @@ pub fn exo1() {
     println!("odd_values : {:?}", odd_values);
 }
 
-// Exercice 2
+// Exercice Rc_pointers
 pub fn exo2() {
     create_shared_data();
 }
 
-// Exercice 3
+// Exercice Cons List
 pub fn exo3() {
     let elements = vec![1, 2, 3, 4, 5];
     let my_list = create_list(elements);
@@ -46,7 +52,7 @@ pub fn exo3() {
     println!("{}", sum_list(&my_list));
 }
 
-// Exercice 4
+// Exercice Rc pointers
 pub fn exo4() {
     let original_vec = create_shared_resource();
     println!(
@@ -82,7 +88,7 @@ pub fn exo4() {
     println!("Contenu du vecteur partagé: {:?}", *original_vec);
 }
 
-// Exercice 5
+// Exercice closures fn -> ()
 pub fn exo5() {
     let mut vec1 = vec![1, 2, 3, 4, 5];
 
@@ -107,7 +113,7 @@ pub fn exo5() {
     println!("Après {:?}", vec1);
 }
 
-// Exercice 6
+// Exercice Arc pointers
 pub fn exo6() {
     let counter = create_counter();
 
@@ -124,6 +130,7 @@ pub fn exo6() {
     println!("Valeur finale: {}", *counter.lock().unwrap());
 }
 
+// Exercices fnMut fnOnce et fn
 pub fn exo7() {
     let mut event_manager = EventManager::new();
 
@@ -165,7 +172,7 @@ pub fn exo7() {
     println!("Fermeture réussie: {}", shutdown_successful);
 }
 
-// Exercice 8
+// Exercice
 pub fn exo8() {
     let logger = Logger::new();
 
@@ -185,8 +192,7 @@ pub fn exo8() {
     println!("Logs after clearing : {}", texte_resultat);
 }
 
-// Exercice 9
-// Simplement pour revoir les methodes d'iterations ect...
+// Exercice iter() / map() / filter()
 pub fn exo9() {
     let sentence_vec = vec![
         "Bonjour je m'appelle Loïc",
@@ -209,7 +215,7 @@ pub fn exo9() {
     println!("Ici le vecteur en uppercase {:#?}", to_uppercase(&arr));
 }
 
-// Exercice 10
+// Exercice
 pub fn exo10() {
     let user = User::new(String::from("alice"));
     println!("Nouvel utilisateur créé : {}\n", user.get_contact_info());
@@ -260,9 +266,37 @@ pub fn exo10() {
     }
 }
 
+// Exercices hashmap
 pub fn exo11() {
     let str = "Lorem ipsum prout Lorem ipsum prout Lorem ipsum prout Lorem ipsum prout";
 
     println!("{:?}", count_chars(str));
     println!("{:?}", word_frequency(str));
+}
+
+// Exercices sur les traits
+pub fn exo12() {
+    let personne = Person {
+        name: String::from("Alice"),
+        age: 30,
+    };
+
+    let produit = Product {
+        name: String::from("Ordinateur"),
+        price: 999.99,
+    };
+
+    personne.display();
+    produit.display();
+}
+
+pub fn exo13() {
+    let circle = Circle { radius: 5.0 };
+    let rectangle = Rectangle {
+        width: 10.0,
+        height: 5.0,
+    };
+
+    analyze_shape(&circle);
+    analyze_shape(&rectangle);
 }

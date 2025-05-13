@@ -1,11 +1,9 @@
 use std::cell::RefCell;
 
-// Prototype de la structure
 pub struct Logger {
     log: RefCell<Vec<String>>,
 }
 
-// Prototypes des fonctions à implémenter
 impl Logger {
     pub fn new() -> Self {
         Logger {

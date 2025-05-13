@@ -6,12 +6,15 @@ pub mod loops;
 pub mod mutex_pointers;
 pub mod rc_pointers;
 pub mod refcell_pointer;
+pub mod traits;
 
 mod resume_solution;
 use ansi_term::{Colour, Style};
-use resume_solution::{exo1, exo2, exo3, exo4, exo5, exo6, exo7, exo8, exo9, exo10, exo11};
+use resume_solution::{
+    exo1, exo10, exo11, exo12, exo13, exo2, exo3, exo4, exo5, exo6, exo7, exo8, exo9,
+};
 
-// Main de test
+// main pour les exercices ⚠️ va changer ⚠️
 fn main() {
     println!(
         "\n{}",
@@ -122,4 +125,24 @@ fn main() {
             .paint("Exercice 11")
     );
     exo11();
+
+    println!(
+        "\n{}",
+        Style::new()
+            .bold()
+            .underline()
+            .fg(Colour::Green)
+            .paint("Exercice 12")
+    );
+    exo12();
+
+    println!(
+        "\n{}",
+        Style::new()
+            .bold()
+            .underline()
+            .fg(Colour::Green)
+            .paint("Exercice 13")
+    );
+    exo13();
 }

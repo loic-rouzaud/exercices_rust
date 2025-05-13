@@ -1,5 +1,4 @@
 //
-// Exercice 2
 // Comprendre comment les pointeurs intelligents Rc permettent
 // la propriété partagée des données en Rust en implémentant une fonction
 // qui crée plusieurs références vers les mêmes données.
@@ -12,6 +11,10 @@ pub fn create_shared_data() -> (Rc<String>, Rc<String>, Rc<String>) {
     // Afficher le nombre de références fortes
     // Afficher le contenu de la String partagée
     // Retourner un tuple contenant trois références à la même donnée
+}
+
+fn main() {
+    // pour tester vos fonctions
 }
 
 #[cfg(test)]

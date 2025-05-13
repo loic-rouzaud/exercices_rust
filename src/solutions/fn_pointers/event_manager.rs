@@ -4,7 +4,6 @@ pub struct EventManager {
     on_shutdown: Vec<Box<dyn FnOnce() -> bool>>,
 }
 
-// Prototypes des fonctions à implémenter
 impl EventManager {
     pub fn new() -> Self {
         EventManager {

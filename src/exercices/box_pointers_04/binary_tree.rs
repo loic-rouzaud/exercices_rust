@@ -5,6 +5,7 @@
 // des structures de données récursives en Rust en examinant une implémentation
 // d'arbre binaire qui organise les valeurs selon leurs propriétés.
 //
+// Exercice difficile
 
 pub struct Node<T> {
     value: T,
@@ -44,6 +45,10 @@ impl Node<i32> {
         // Utiliser la fonction is_even pour déterminer où insérer la valeur
         todo!();
     }
+}
+
+fn main() {
+    // pour tester vos fonctions
 }
 
 #[cfg(test)]

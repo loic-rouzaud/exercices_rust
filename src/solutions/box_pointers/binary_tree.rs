@@ -1,11 +1,3 @@
-//
-// Exercice 1
-//
-// Goal : Understand how Box smart pointers enable recursive data structures
-// in Rust by examining a binary tree implementation that organizes
-// values based on their properties.
-//
-
 pub struct Node<T> {
     value: T,
     left: Option<Box<Node<T>>>,

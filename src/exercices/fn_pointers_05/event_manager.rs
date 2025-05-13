@@ -1,3 +1,5 @@
+// Exercice difficile
+
 pub struct EventManager {
     on_start: Vec<Box<dyn FnMut() -> ()>>,
     on_message: Vec<Box<dyn Fn(String) -> String>>,
@@ -38,4 +40,8 @@ impl EventManager {
         // TODO() : Appeler tous les gestionnaires d'arrêt et retourner true
         // si tous ont réussi (retourné true), sinon false
     }
+}
+
+fn main() {
+    // pour tester vos fonctions
 }
