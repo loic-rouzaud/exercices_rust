@@ -17,3 +17,6 @@ required-features = ["solutions"]
 
 [dependencies]
 ansi_term = "0.12.1"
+
+[lints.clippy]
+non_snake_case = "allow"

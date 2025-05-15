@@ -1,7 +1,7 @@
 pub trait Display {
     // TODO: Définissez une méthode 'display' qui retourne une chaîne de caractères (String)
     // Cette méthode doit être implémentée par toutes les structures qui utilisent ce trait
-    fn display(&self) -> String;
+    todo!();
 }
 
 pub struct Person {
@@ -18,18 +18,14 @@ impl Display for Person {
     // TODO: Implémentez la méthode display pour la structure Person
     // Elle doit retourner une chaîne au format: "Personne: [nom] ([age] ans)"
     // Exemple: "Personne: Alice (30 ans)"
-    fn display(&self) -> String {
-        todo!()
-    }
+    todo!()
 }
 
 impl Display for Product {
     // TODO: Implémentez la méthode display pour la structure Product
     // Elle doit retourner une chaîne au format: "Produit: [nom] ([prix]€)"
     // Exemple: "Produit: Ordinateur (999.99€)"
-    fn display(&self) -> String {
-        todo!()
-    }
+    todo!()
 }
 
 fn main() {
