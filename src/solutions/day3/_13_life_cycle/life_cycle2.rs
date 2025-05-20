@@ -7,10 +7,7 @@ fn first_line<'a>(text: &'a str) -> TextImportant<'a> {
     TextImportant { part: first }
 }
 
-fn shortest_text<'a, 'b>(text1: &'a str, text2: &'b str) -> TextImportant<'a>
-where
-    'b: 'a,
-{
+fn shortest_text<'a>(text1: &'a str, text2: &'a str) -> TextImportant<'a> {
     if text1.len() <= text2.len() {
         TextImportant { part: text1 }
     } else {
@@ -46,7 +43,6 @@ mod tests {
     fn test_first_line() {
         let text = "Première ligne.\nDeuxième ligne.\nTroisième ligne.";
         let important = first_line(text);
-
         assert_eq!(important.part, "Première ligne.");
     }
 
@@ -54,15 +50,11 @@ mod tests {
     fn test_shortest_text() {
         let text1 = "Texte court";
         let text2 = "Texte beaucoup plus long";
-
         let important = shortest_text(text1, text2);
         assert_eq!(important.part, "Texte court");
 
-        let result;
-        {
-            let temp_text = String::from("Texte temporaire court");
-            result = shortest_text(text1, &temp_text);
-        }
+        let text3 = String::from("Texte temporaire court");
+        let result = shortest_text(text1, &text3);
         assert_eq!(result.part, "Texte court");
     }
 }

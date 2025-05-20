@@ -1,30 +1,30 @@
 use std::cell::RefCell;
 
-pub struct Logger {
+struct Logger {
     log: RefCell<Vec<String>>,
 }
 
 impl Logger {
-    pub fn new() -> Self {
+    fn new() -> Self {
         Logger {
             log: RefCell::new(Vec::new()),
         }
     }
 
-    pub fn log(&self, message: &str) {
+    fn log(&self, message: &str) {
         self.log.borrow_mut().push(String::from(message));
     }
 
-    pub fn get_logs(&self) -> Vec<String> {
+    fn get_logs(&self) -> Vec<String> {
         let logs = self.log.borrow().clone();
         logs
     }
 
-    pub fn clear(&self) {
+    fn clear(&self) {
         self.log.borrow_mut().clear();
     }
 
-    pub fn process_with_logging<T>(&self, data: T, processor: impl Fn(T, &dyn Fn(&str)) -> T) -> T {
+    fn process_with_logging<T>(&self, data: T, processor: impl Fn(T, &dyn Fn(&str)) -> T) -> T {
         let log_function = |msg: &str| {
             self.log(msg);
         };
@@ -33,7 +33,22 @@ impl Logger {
 }
 
 fn main() {
-    // pour tester vos fonctions
+    let logger = Logger::new();
+
+    let texte_resultat =
+        logger.process_with_logging(String::from("Bonjour"), |mut texte, log_fn| {
+            log_fn("Ici on pousse ça dans le vecteur -> Traitement de texte commencé");
+            texte.push_str(" à vous");
+            log_fn(&format!("Texte après modification: {}", texte));
+            texte
+        });
+    let prouts = logger.get_logs();
+    for prout in prouts {
+        println!("{prout}")
+    }
+    println!("\nClearing logger....");
+    logger.clear();
+    println!("Logs after clearing : {}", texte_resultat);
 }
 
 #[cfg(test)]

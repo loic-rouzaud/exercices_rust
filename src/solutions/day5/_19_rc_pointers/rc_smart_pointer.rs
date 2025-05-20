@@ -1,6 +1,6 @@
 use std::rc::Rc;
 
-pub fn create_shared_data() -> (Rc<String>, Rc<String>, Rc<String>) {
+fn create_shared_data() -> (Rc<String>, Rc<String>, Rc<String>) {
     let shared_str_a = Rc::new(String::from("I'm another variable !!"));
     let shared_str_b = Rc::clone(&shared_str_a);
     let shared_str_c = Rc::clone(&shared_str_a);
@@ -12,7 +12,7 @@ pub fn create_shared_data() -> (Rc<String>, Rc<String>, Rc<String>) {
 }
 
 fn main() {
-    // pour tester vos fonctions
+    create_shared_data();
 }
 
 #[cfg(test)]

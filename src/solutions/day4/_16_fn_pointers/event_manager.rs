@@ -1,11 +1,11 @@
-pub struct EventManager {
+struct EventManager {
     on_start: Vec<Box<dyn FnMut() -> ()>>,
     on_message: Vec<Box<dyn Fn(String) -> String>>,
     on_shutdown: Vec<Box<dyn FnOnce() -> bool>>,
 }
 
 impl EventManager {
-    pub fn new() -> Self {
+    fn new() -> Self {
         EventManager {
             on_start: Vec::new(),
             on_message: Vec::new(),
@@ -13,25 +13,25 @@ impl EventManager {
         }
     }
 
-    pub fn register_start_handler(&mut self, handler: impl FnMut() -> () + 'static) {
+    fn register_start_handler(&mut self, handler: impl FnMut() -> () + 'static) {
         self.on_start.push(Box::new(handler));
     }
 
-    pub fn register_message_handler(&mut self, handler: impl Fn(String) -> String + 'static) {
+    fn register_message_handler(&mut self, handler: impl Fn(String) -> String + 'static) {
         self.on_message.push(Box::new(handler));
     }
 
-    pub fn register_shutdown_handler(&mut self, handler: impl FnOnce() -> bool + 'static) {
+    fn register_shutdown_handler(&mut self, handler: impl FnOnce() -> bool + 'static) {
         self.on_shutdown.push(Box::new(handler));
     }
 
-    pub fn trigger_start(&mut self) {
+    fn trigger_start(&mut self) {
         for handler in &mut self.on_start {
             handler();
         }
     }
 
-    pub fn process_message(&self, message: String) -> Vec<String> {
+    fn process_message(&self, message: String) -> Vec<String> {
         let mut vector = Vec::new();
 
         for handler in &self.on_message {
@@ -41,7 +41,7 @@ impl EventManager {
         vector
     }
 
-    pub fn shutdown(self) -> bool {
+    fn shutdown(self) -> bool {
         let mut all_success: bool = true;
         for handler in self.on_shutdown {
             if !handler() {

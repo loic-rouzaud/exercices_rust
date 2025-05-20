@@ -15,7 +15,19 @@ fn increment_counter(counter: Arc<Mutex<i32>>, increments: i32) -> thread::JoinH
 }
 
 fn main() {
-    // pour tester vos fonctions
+    let counter = create_counter();
+
+    let handles = vec![
+        increment_counter(Arc::clone(&counter), 1000),
+        increment_counter(Arc::clone(&counter), 1000),
+        increment_counter(Arc::clone(&counter), 1000),
+    ];
+
+    for handle in handles {
+        handle.join().unwrap();
+    }
+
+    println!("Valeur finale: {}", *counter.lock().unwrap());
 }
 
 #[cfg(test)]

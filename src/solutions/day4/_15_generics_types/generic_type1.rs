@@ -1,6 +1,5 @@
 fn swap<T>(a: &mut T, b: &mut T) {
-    let temp = std::mem::replace(a, std::mem::replace(b, std::mem::take(a)));
-    *b = temp;
+    std::mem::swap(a, b);
 }
 
 fn main() {

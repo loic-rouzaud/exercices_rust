@@ -1,26 +1,26 @@
-pub trait Display {
-    fn display(&self);
+trait Display {
+    fn display(&self) -> String;
 }
 
-pub struct Person {
-    pub name: String,
-    pub age: u32,
+struct Person {
+    name: String,
+    age: u32,
 }
 
-pub struct Product {
+struct Product {
     pub name: String,
     pub price: f64,
 }
 
 impl Display for Person {
-    fn display(&self) {
-        println!("Personne: {} ({} ans)", self.name, self.age);
+    fn display(&self) -> String {
+        format!("Personne: {} ({} ans)", self.name, self.age)
     }
 }
 
 impl Display for Product {
-    fn display(&self) {
-        println!("Produit: {} ({}€)", self.name, self.price);
+    fn display(&self) -> String {
+        format!("Produit: {} ({}€)", self.name, self.price)
     }
 }
 
@@ -82,7 +82,6 @@ mod tests {
                 price: 349.99,
             }),
         ];
-
         assert_eq!(displays[0].display(), "Personne: Charlie (40 ans)");
         assert_eq!(displays[1].display(), "Produit: Tablette (349.99€)");
     }

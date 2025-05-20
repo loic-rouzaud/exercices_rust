@@ -1,4 +1,4 @@
-pub fn apply_operations<F>(data: &mut Vec<i32>, mut operations: Vec<F>)
+fn apply_operations<F>(data: &mut Vec<i32>, mut operations: Vec<F>)
 where
     F: FnMut(&mut Vec<i32>),
 {
